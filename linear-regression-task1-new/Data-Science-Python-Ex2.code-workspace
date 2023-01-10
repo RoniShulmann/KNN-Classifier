@@ -1,0 +1,19 @@
+{
+  "folders": [
+	{
+		"path": "../../../source/repos/Data-Science-Python-Ex2"
+	},
+	{
+		"path": "../classification-task2"
+	},
+	{
+		"path": "."
+	},
+	{
+		"path": "../__MACOSX"
+	}
+],
+  "settings": {
+    "git.ignoreLimitWarning": true
+  }
+}
