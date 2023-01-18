@@ -6,6 +6,7 @@ import pandas as pd
 import numpy as np
 
 from sklearn.metrics import accuracy_score
+from sklearn.preprocessing import StandardScaler
 
 from typing import List
 
@@ -29,6 +30,17 @@ def KNN(k, data_trn, data_vld, data_tst):
     X_trn, y_trn = data_trn_df.values[:, :-1], data_trn_df['class'].values
     X_vld, y_vld = data_vld_df.values[:, :-1], data_vld_df['class'].values
     X_tst, y_tst = data_tst_df.values[:, :-1], data_tst_df['class'].values
+
+    # Initialize the StandardScaler
+    scaler = StandardScaler()
+
+    # Fit the StandardScaler on the training data
+    scaler.fit(X_trn)
+
+    # Standardize the training, validation, and test data
+    X_trn = scaler.transform(X_trn)
+    X_vld = scaler.transform(X_vld)
+    X_tst = scaler.transform(X_tst)
 
     # Initialize an empty list to store the predictions
     predictions = []
