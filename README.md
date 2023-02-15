@@ -20,6 +20,21 @@ This is a Python implementation of a K-Nearest Neighbors (KNN) classifier for a 
 4. Run the classifier using `python knn_classifier.py`.
 5. The classifier will output the classification accuracy on the test set, as well as the total time taken to classify the test instances.
 
-## License
+## Feature Scaling
+In order to ensure that all the features are treated equally, 
+it is important to scale them.
+Here, we use the StandardScaler from the sklearn.preprocessing module to scale the features.
 
-This project is licensed under the MIT License. See `LICENSE` for more information.
+'''python
+# Initialize the StandardScaler
+scaler = StandardScaler()
+
+# Fit the StandardScaler on the training data
+scaler.fit(X_trn)
+
+# Standardize the training, validation, and test data
+X_trn = scaler.transform(X_trn)
+X_vld = scaler.transform(X_vld)
+X_tst = scaler.transform(X_tst)
+'''
+
