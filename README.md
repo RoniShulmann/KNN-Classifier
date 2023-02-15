@@ -66,4 +66,4 @@ for i in range(len(X_tst)):
 ```
 
 
-This project was created by [Ori Nurieli](https://github.com/orinurieli) and Roni Shulman.
+This project was created by [Ori Nurieli](https://github.com/orinurieli) and [Roni Shulman](https://github.com/RoniShulmann). 
