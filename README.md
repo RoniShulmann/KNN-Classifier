@@ -25,7 +25,7 @@ In order to ensure that all the features are treated equally,
 it is important to scale them.
 Here, we use the StandardScaler from the sklearn.preprocessing module to scale the features.
 
-'''python
+```python
 # Initialize the StandardScaler
 scaler = StandardScaler()
 
@@ -36,5 +36,34 @@ scaler.fit(X_trn)
 X_trn = scaler.transform(X_trn)
 X_vld = scaler.transform(X_vld)
 X_tst = scaler.transform(X_tst)
-'''
+```
 
+## K-Nearest Neighbors Algorithm
+The K-Nearest Neighbors algorithm is a simple, yet effective machine learning algorithm 
+used for classification and regression problems. 
+
+```python
+# Initialize an empty list to store the predictions
+predictions = []
+
+# Iterate over the test instances
+for i in range(len(X_tst)):
+    # Find the euclidean distance between the test point and all training points
+    distances = np.sqrt(
+        np.sum((X_trn.astype('float64') - X_tst[i][np.newaxis, :].astype('float64'))**2, axis=1))
+
+    # Get the indices of the k nearest neighbors
+    k_nearest_indices = np.argsort(distances)[: k]
+
+    # Get the labels of the k nearest neighbors
+    k_nearest_labels = y_trn[k_nearest_indices]
+
+    # Get the most common label among the k nearest neighbors
+    most_common_label = Counter(k_nearest_labels).most_common(1)[0][0]
+
+    # Append the prediction to the list
+    predictions.append(most_common_label)
+```
+
+
+This project was created by Ori Nurieli and Roni Shulman.
